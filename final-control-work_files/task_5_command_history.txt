@@ -1,0 +1,39 @@
+ 1022  git init
+ 1023  cat >>READMI.md
+ 1024  cat > "Домашние животные" << EOF
+собаки
+кошки
+хомяки
+
+EOF
+
+ 1025  CLEAR
+ 1026  clear
+ 1027  cat > "Домашние животные" << EOF
+Собаки
+Кошки
+Хомяки
+EOF
+
+ 1028  cat > "Вьючные животные" << EOF
+Лошади
+Верблюды
+Ослы
+EOF
+
+ 1029  cat "Домашние животные" "Вьючные животные" > "Животные"
+ 1030  cat "Животные"
+ 1031  mv "Животные" "Друзья человека"
+ 1032  mkdir final-control-work_files
+ 1033  mv "Друзья человека" final-control-work_files
+ 1034  sudo apt-get install software-properties-common
+ 1035  clear
+ 1036  sudo apt-get install software-properties-common
+ 1037  sudo add-apt-repository 'deb http://repo.mysql.com/apt/debian buster mysql-8.0'
+ 1038  sudo apt-get update
+ 1039  sudo apt-get install mysql-client
+ 1040  clear
+ 1041  sudo dpkg -i final-control-work_files/node-text-hex_1.0.0-4_all.deb
+ 1042  sudo dpkg -r node-text-hex_1.0.0-4_all
+ 1043  sudo dpkg -r node-text-hex
+ 1044  history > final-control-work_files/task_5_command_history.txt
