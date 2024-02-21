@@ -134,4 +134,57 @@ SELECT * FROM donkeys;
 
 -- 11. Создать новую таблицу “молодые животные” в которую попадут все животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью до месяца подсчитать возраст животных в новой таблице
 
+-- Ну вот тут я запуталась.
 
+-- CREATE TABLE yang_animals AS
+-- SELECT name, birthday, 
+--        DATE_PART('year', age(CURRENT_DATE, birthday)) * 12 + DATE_PART('month', age(CURRENT_DATE, birthday)) AS age_months
+-- FROM cats
+-- WHERE birthday <= CURRENT_DATE - INTERVAL '1 year' AND birthday > CURRENT_DATE - INTERVAL '3 year'
+-- UNION ALL
+-- SELECT name, birthday, 
+--        DATE_PART('year', age(CURRENT_DATE, birthday)) * 12 + DATE_PART('month', age(CURRENT_DATE, birthday)) AS age_months
+-- FROM dogs
+-- WHERE birthday <= CURRENT_DATE - INTERVAL '1 year' AND birthday > CURRENT_DATE - INTERVAL '3 year'
+-- UNION ALL
+-- SELECT name, birthday, 
+--        DATE_PART('year', age(CURRENT_DATE, birthday)) * 12 + DATE_PART('month', age(CURRENT_DATE, birthday)) AS age_months
+-- FROM hamsters
+-- WHERE birthday <= CURRENT_DATE - INTERVAL '1 year' AND birthday > CURRENT_DATE - INTERVAL '3 year'
+-- UNION ALL
+-- SELECT name, birthday, 
+--        DATE_PART('year', age(CURRENT_DATE, birthday)) * 12 + DATE_PART('month', age(CURRENT_DATE, birthday)) AS age_months
+-- FROM horses
+-- WHERE birthday <= CURRENT_DATE - INTERVAL '1 year' AND birthday > CURRENT_DATE - INTERVAL '3 year'
+-- UNION ALL
+-- SELECT name, birthday, 
+--        DATE_PART('year', age(CURRENT_DATE, birthday)) * 12 + DATE_PART('month', age(CURRENT_DATE, birthday)) AS age_months
+-- FROM camels
+-- WHERE birthday <= CURRENT_DATE - INTERVAL '1 year' AND birthday > CURRENT_DATE - INTERVAL '3 year'
+-- UNION ALL
+-- SELECT name, birthday, 
+--        DATE_PART('year', age(CURRENT_DATE, birthday)) * 12 + DATE_PART('month', age(CURRENT_DATE, birthday)) AS age_months
+-- FROM donkeys
+-- WHERE birthday <= CURRENT_DATE - INTERVAL '1 year' AND birthday > CURRENT_DATE - INTERVAL '3 year';
+
+-- 12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на прошлую принадлежность к старым таблицам.
+
+-- Это "визуально" или прям объединить в новую таблицу?..
+-- CREATE TABLE all_animals AS
+SELECT 'cats' AS animal_type, id, animal_kind, name, birthday, commands, color, null AS capacity 
+FROM cats
+UNION ALL
+SELECT 'dogs' AS animal_type, id, animal_kind, name, birthday, commands, color, null AS capacity 
+FROM dogs
+UNION ALL
+SELECT 'hamsters' AS animal_type, id, animal_kind, name, birthday, commands, color, null AS capacity 
+FROM hamsters
+UNION ALL
+SELECT 'horses' AS animal_type, id, animal_kind, name, birthday, commands, null AS color, capacity
+FROM horses
+UNION ALL
+SELECT 'camels' AS animal_type, id, animal_kind, name, birthday, commands, null AS color, capacity
+FROM camels
+UNION ALL
+SELECT 'donkeys' AS animal_type, id, animal_kind, name, birthday, commands, null AS color, capacity
+FROM donkeys;
