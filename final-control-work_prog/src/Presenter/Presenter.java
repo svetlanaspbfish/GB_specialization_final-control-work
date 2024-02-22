@@ -1,7 +1,13 @@
 package Presenter;
 
 import model.AnimalRegistry;
+import model.animal.Animal;
+import model.animal.AnimalFinalClasses;
 import view.View;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Presenter {
     AnimalRegistry registry;
@@ -12,19 +18,19 @@ public class Presenter {
         registry = new AnimalRegistry();
     }
 
-    public void addNewAnimal()
+    public void addNewAnimal( String name, Date birthDateStr )
     {
-        registry.addNewAnimal();
+        registry.addNewAnimal( name, birthDateStr );
     }
 
-    public void moveAnimalToRightClass()
+    public void moveAnimalToRightClass( int chosenAminalIndex, String chosenAnimalClass  )
     {
-        registry.moveAnimalToRightClass();
+        registry.moveAnimalToRightClass( chosenAminalIndex, chosenAnimalClass );
     }
 
-    public void showAnimalCommands()
+    public ArrayList<String> getAnimalCommands(int chosenAminalIndex )
     {
-        registry.showAnimalCommands();
+       return registry.getAnimalCommands( chosenAminalIndex );
     }
 
     public void teachAnimalCommands()
@@ -32,5 +38,14 @@ public class Presenter {
         registry.teachAnimalCommands();
     }
 
+    public List<Animal> getAnimals()
+    {
+        return registry.getAnimals();
+    }
+
+    public List<AnimalFinalClasses> getAnimalFinalClasses()
+    {
+        return registry.getAnimalFinalClasses();
+    }
 
 }

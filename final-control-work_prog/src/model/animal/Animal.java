@@ -14,6 +14,12 @@ public class Animal {
         this.commands = new ArrayList<>();
     }
 
+    public Animal( Animal animal ) {
+        this.name = animal.getName();
+        this.birthday = animal.getBirthday();
+        this.commands = animal.getCommands();
+    }
+
     public String getName() {
         return name;
     }
@@ -40,5 +46,10 @@ public class Animal {
 
     public void removeCommand(String command) {
         commands.remove(command);
+    }
+
+    public String toString()
+    {
+        return name;
     }
 }

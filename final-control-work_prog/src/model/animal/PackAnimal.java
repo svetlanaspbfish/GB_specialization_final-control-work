@@ -10,6 +10,10 @@ public class PackAnimal extends Animal {
         this.capacity = capacity;
     }
 
+    public PackAnimal(Animal animal) {
+        super(animal);
+    }
+
     public String getCapacity() {
         return capacity;
     }

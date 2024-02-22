@@ -10,6 +10,10 @@ public class Pet extends Animal {
         this.color = color;
     }
 
+    public Pet(Animal animal) {
+        super(animal);
+    }
+
     public String getColor() {
         return color;
     }
