@@ -9,10 +9,7 @@ import view.consoleUI.MenuSelectionFromEnum;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ConsoleUI implements View  {
 
@@ -178,11 +175,34 @@ public class ConsoleUI implements View  {
                 System.out.println("Ошибка выбора. Вы будете возвращены в главное меню.");
             }
         }
-
     }
 
     public void teachAnimalCommands()
     {
-        presenter.teachAnimalCommands();
+        System.out.println("Вы выбрали просмотр команд, которые выполняет животное.");
+        List<Animal> arrOptions = presenter.getAnimals();
+        MenuSelectionFromArray submenu = new MenuSelectionFromArray( this, arrOptions, "Выберите животное, команды которого хотите посмотреть:");
+        System.out.println( submenu.menu() );
+
+        String line = scanner.nextLine();
+        if ( checkTextCorrectForInt( line ) )
+        {
+            int numOption = Integer.parseInt( line );
+            if ( submenu.checkChosenInput( numOption ) )
+            {
+                int chosenAminalIndex = --numOption;
+                System.out.println("Введите новые команды через пробел.");
+                line = scanner.nextLine();
+                String[] newCommands = line.split(" ");
+
+                presenter.teachAnimalCommands( chosenAminalIndex, newCommands );
+
+                System.out.println("Новые команды добавлены.");
+            }
+            else
+            {
+                System.out.println("Ошибка выбора. Вы будете возвращены в главное меню.");
+            }
+        }
     }
 }

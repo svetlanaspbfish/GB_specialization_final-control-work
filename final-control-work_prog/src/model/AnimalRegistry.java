@@ -73,7 +73,10 @@ public class AnimalRegistry {
         return animals.get( chosenAminalIndex ).getCommands();
     }
 
-    public void teachAnimalCommands() {
-        //
+    public void teachAnimalCommands( int chosenAminalIndex,  String[] newCommands ) {
+        Animal studentAnimal = animals.get( chosenAminalIndex );
+        for (String newCommand : newCommands ) {
+            studentAnimal.addCommand( newCommand );
+        }
     }
 }

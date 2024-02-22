@@ -6,6 +6,7 @@ import model.animal.AnimalFinalClasses;
 import view.View;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -33,9 +34,9 @@ public class Presenter {
        return registry.getAnimalCommands( chosenAminalIndex );
     }
 
-    public void teachAnimalCommands()
+    public void teachAnimalCommands( int chosenAminalIndex,  String[] newCommands )
     {
-        registry.teachAnimalCommands();
+        registry.teachAnimalCommands( chosenAminalIndex, newCommands );
     }
 
     public List<Animal> getAnimals()
